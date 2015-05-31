@@ -5,12 +5,7 @@ import getpass
 import os.path
 import pydub as pd
 import dars as d
-#
-# def saveFiles(fileName1, fileName2, songs):
-#     """Save songs to files"""
-#     songs[0].export(fileName1, format=fileName1.split(".")[1], tags={"album": args.album, "artist": args.artist})
-#     songs[1].export(fileName2, format=fileName2.split(".")[1], tags={"album": args.album, "artist": args.artist})
-#
+
 def addToiTunes(itunesPath, fileName):
     """Attempts to add fileName to iTunes by moving it into the default Automatically Add to iTunes.localized folder"""
     try:
@@ -31,11 +26,7 @@ def genPath(artist, album, track, trackNum, fmt, itunesPath):
 def parseArgs():
     """Parses arguments passed in via the command line"""
     parser = argparse.ArgumentParser()
-    # parser.add_argument("name", help="the file you want to split")
-    # parser.add_argument("out1", help="the name of the first file you want to output")
-    # parser.add_argument("out2", help="the name of the second file you want to output")
     parser.add_argument("-v", "--verbose", help="increase output verbosity", action="store_true")
-    # parser.add_argument("-i", "--itunes", help="attempt to add the split songs to iTunes", action="store_true")
     parser.add_argument("--artist", help="specifies artist for tagging of output files")
     parser.add_argument("--album", help="specifies album for tagging of output files")
     parser.add_argument("--track", help="specifies track title for tagging of output files")
@@ -59,7 +50,6 @@ def main():
     trackNum = trackNum.zfill(2)
 
     print(itunes)
-
     print(artist)
     print(album)
     print(track)
@@ -70,18 +60,6 @@ def main():
     for song in out:
         addToiTunes(itunes, song)
 
-    # songIn = d.instantiateSong(args.name, detectFormat(args.name))
-    # times = findGap(songIn)
-    # saveFiles(args.out1, args.out2, splitSong(songIn, times[0], times[1]))
-    # if(args.itunes):
-    #     if(args.verbose):
-    #         print("Adding " + args.out1 + " to iTunes...")
-    #     addToiTunes(args.out1)
-    #     if(args.verbose):
-    #         print("Adding " + args.out2 + " to iTunes...")
-    #     addToiTunes(args.out2)
-    # if(args.verbose):
-    #     print "All done!"
 
 py3 = sys.version_info[0] > 2
 args = parseArgs()

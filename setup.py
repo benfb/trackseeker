@@ -13,7 +13,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='trackseeker',
 
-    version='1.0.0',
+    version='1.1.0',
 
     description='A tool that uses the Dead Air Removal Service to discover hidden tracks and add them to iTunes.',
     long_description=long_description,
